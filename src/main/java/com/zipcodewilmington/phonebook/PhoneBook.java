@@ -1,5 +1,6 @@
 package com.zipcodewilmington.phonebook;
 
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ public class PhoneBook {
     private String name;
     private String phoneNumber;
     //Tree map to hold names and numbers
-    private TreeMap<String, String> book = new TreeMap<String, String>();
+    private SortedMap<String, String> book = new TreeMap<String, String>();
 
     //lookup method
     public void lookup() {
@@ -39,5 +40,7 @@ public class PhoneBook {
         // Following statement would create an object myPuppy
         PhoneBook test = new PhoneBook();
         test.add("Daniel", "717-555-5555");
+        test.add("Kelly", "717-666-5555");
+        test.add("Alicia", "717-777-5555");
     }
 }
