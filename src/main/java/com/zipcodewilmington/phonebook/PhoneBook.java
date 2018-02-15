@@ -1,5 +1,8 @@
 package com.zipcodewilmington.phonebook;
 
+import java.util.TreeMap;
+import java.util.Set;
+
 /**
  * Created by leon on 1/23/18.
  */
@@ -8,24 +11,33 @@ public class PhoneBook {
     //variables
     private String name;
     private String phoneNumber;
+    //Tree map to hold names and numbers
+    private TreeMap<String, String> book = new TreeMap<String, String>();
 
     //lookup method
-    public static void lookup() {
+    public void lookup() {
         //
     }
 
     //add method
-    public static void add() {
-        //
+    public void add(String name, String number) {
+        this.book.put(name, number);
+        System.out.println(this.book);
     }
 
     //remove method
-    public static void remove() {
+    public void remove() {
         //
     }
 
     //display() method
-    public static void display() {
+    public void display() {
         //
+    }
+
+    public static void main(String []args) {
+        // Following statement would create an object myPuppy
+        PhoneBook test = new PhoneBook();
+        test.add("Daniel", "717-555-5555");
     }
 }
