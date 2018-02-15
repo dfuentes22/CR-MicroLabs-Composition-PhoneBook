@@ -15,7 +15,6 @@ public class PhoneBook {
     private String phoneNumber;
     //Tree map to hold names and numbers
     private SortedMap<String, String> book = new TreeMap<String, String>();
-    private SortedMap<String, String> reverseBook = new TreeMap<String, String>();
 
     //lookup method
     public void lookup(String name) {
@@ -46,11 +45,11 @@ public class PhoneBook {
     //reverseLookup method
     public void reverseLookup(String number) {
         for(Map.Entry<String, String> entry : this.book.entrySet()) {
-            this.reverseBook.put(entry.getValue(), entry.getKey());
+            if(entry.getValue().equals(number)){
+                System.out.println(entry.getKey());
+                break;
+            }
         }
-        String val = this.reverseBook.get(number);
-        System.out.println(number + "'s owner is: " + val);
-
     }
 
     public static void main(String []args) {
@@ -60,6 +59,5 @@ public class PhoneBook {
         test.add("Kelly", "717-666-5555");
         test.add("Alicia", "717-777-5555");
         test.reverseLookup("717-777-5555");
-
     }
 }
