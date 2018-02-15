@@ -43,7 +43,7 @@ public class PhoneBook {
     }
 
     public static void main(String []args) {
-        // Following statement would create an object myPuppy
+        // Following statement would create an object Phonebook
         PhoneBook test = new PhoneBook();
         test.add("Daniel", "717-555-5555");
         test.add("Kelly", "717-666-5555");
