@@ -7,10 +7,6 @@ import java.util.*;
  */
 public class PhoneBook {
 
-    //variables
-    private String name;
-    private String phoneNumber;
-
     //Tree map to hold names and numbers
     private SortedMap<String, ArrayList<String>> book = new TreeMap<String, ArrayList<String>>();
 
