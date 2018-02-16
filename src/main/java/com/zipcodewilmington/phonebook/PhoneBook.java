@@ -57,11 +57,17 @@ public class PhoneBook {
 
     //reverseLookup method
     public void reverseLookup(String number) {
+        //loop through all phone book entries
         for(Map.Entry<String, ArrayList<String>> entry : this.book.entrySet()) {
-            if(entry.getValue().equals(number)){
-                System.out.println(entry.getKey());
-                break;
+            //loop through all the numbers of a single entry
+            for(String item : entry.getValue()){
+                //if a number in the list equals lookup number, print name and stop loop
+                if(item.equals(number)){
+                    System.out.println(entry.getKey());
+                    break;
+                }
             }
+
         }
     }
 
@@ -73,6 +79,6 @@ public class PhoneBook {
         test.add("Joe", "902-999-9999");
         test.add("Joe", "902-777-9999");
         test.add("Daniel", "717-111-8888");
-        test.reverseLookup("717-111-8888");
+        test.reverseLookup("717-111-8889");
     }
 }
