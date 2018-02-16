@@ -11,9 +11,6 @@ public class PhoneBook {
     private String name;
     private String phoneNumber;
 
-    //List to hold multiple phone numbers
-    private ArrayList<String> phoneNumbersList = new ArrayList<String>();
-
     //Tree map to hold names and numbers
     private SortedMap<String, ArrayList<String>> book = new TreeMap<String, ArrayList<String>>();
 
