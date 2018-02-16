@@ -1,9 +1,6 @@
 package com.zipcodewilmington.phonebook;
 
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by leon on 1/23/18.
@@ -13,38 +10,50 @@ public class PhoneBook {
     //variables
     private String name;
     private String phoneNumber;
+
+    //List to hold multiple phone numbers
+    private ArrayList<String> phoneNumbersList = new ArrayList<String>();
+
     //Tree map to hold names and numbers
-    private SortedMap<String, String> book = new TreeMap<String, String>();
+    private SortedMap<String, ArrayList<String>> book = new TreeMap<String, ArrayList<String>>();
 
-    //lookup method
-    public void lookup(String name) {
-        String val = this.book.get(name);
-        System.out.println(name + "'s number is: " + val);
-
-    }
-
-    //add method
+    //add individual number
     public void add(String name, String number) {
-        this.book.put(name, number);
+        //if name already exists, add to existing list
+        if (this.book.containsKey(name)){
+            this.book.get(name).add(number);
+        }
+        //if name does not exist, create new list and add number
+        else {
+            this.book.put(name, new ArrayList<String>());
+            this.book.get(name).add(number);
+        }
     }
 
-    //remove method
+    //remove method to remove individual number
     public void remove(String name) {
         //
         this.book.remove(name);
-        System.out.println(name + "'s number has been removed");
+        System.out.println(name + "'s number(s) has been removed");
     }
+
+    //lookup method
+//    public void lookup(String name) {
+//        String val = this.book.get(name);
+//        System.out.println(name + "'s number is: " + val);
+//
+//    }
 
     //display() method
     public void display() {
-        for(Map.Entry<String, String> entry : this.book.entrySet()) {
+        for(Map.Entry<String, ArrayList<String>> entry : this.book.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
     //reverseLookup method
     public void reverseLookup(String number) {
-        for(Map.Entry<String, String> entry : this.book.entrySet()) {
+        for(Map.Entry<String, ArrayList<String>> entry : this.book.entrySet()) {
             if(entry.getValue().equals(number)){
                 System.out.println(entry.getKey());
                 break;
@@ -56,8 +65,13 @@ public class PhoneBook {
         // Following statement would create an object Phonebook
         PhoneBook test = new PhoneBook();
         test.add("Daniel", "717-555-5555");
-        test.add("Kelly", "717-666-5555");
-        test.add("Alicia", "717-777-5555");
-        test.reverseLookup("717-777-5555");
+        test.add("Daniel", "717-555-6666");
+        test.add("Joe", "902-999-9999");
+        test.add("Joe", "902-777-9999");
+        test.add("Daniel", "717-111-8888");
+
+
+        test.display();
+
     }
 }
