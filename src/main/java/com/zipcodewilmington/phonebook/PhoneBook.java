@@ -43,11 +43,10 @@ public class PhoneBook {
     }
 
     //lookup method
-//    public void lookup(String name) {
-//        String val = this.book.get(name);
-//        System.out.println(name + "'s number is: " + val);
-//
-//    }
+    public void lookup(String name) {
+        ArrayList<String> numbers = this.book.get(name);
+        System.out.println(name + "'s numbers are: " + numbers);
+    }
 
     //display() method
     public void display() {
@@ -74,8 +73,6 @@ public class PhoneBook {
         test.add("Joe", "902-999-9999");
         test.add("Joe", "902-777-9999");
         test.add("Daniel", "717-111-8888");
-        test.display();
-        test.removeNumber("Daniel", "717-555-6666");
-        test.display();
+        test.reverseLookup("717-111-8888");
     }
 }
