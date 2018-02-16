@@ -30,9 +30,14 @@ public class PhoneBook {
         }
     }
 
-    //remove method to remove individual number
-    public void remove(String name) {
-        //
+    //remove individual number method
+    public void removeNumber(String name) {
+        this.book.remove(name);
+        System.out.println(name + "'s number(s) has been removed");
+    }
+
+    //remove an entire entry method
+    public void removeRecord(String name) {
         this.book.remove(name);
         System.out.println(name + "'s number(s) has been removed");
     }
@@ -69,9 +74,8 @@ public class PhoneBook {
         test.add("Joe", "902-999-9999");
         test.add("Joe", "902-777-9999");
         test.add("Daniel", "717-111-8888");
-
-
         test.display();
-
+        test.removeRecord("Daniel");
+        test.display();
     }
 }
